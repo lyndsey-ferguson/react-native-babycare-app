@@ -19,7 +19,7 @@ import {
   AdMobRewarded
 } from 'react-native-admob'
 
-export default class babycare extends Component {
+export default class Babycare extends Component {
   bannerError(errorDescription) {
     console.log('got a banner error: ' + errorDescription);
   }
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('babycare', () => babycare);
+AppRegistry.registerComponent('Babycare', () => Babycare);

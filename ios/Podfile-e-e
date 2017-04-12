@@ -1,5 +1,15 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
+
+platform :ios, '9.3'
+
+def ci?
+  ['JENKINS_HOME', 'JENKINS_URL'].each do |envvar|
+    return true if ENV.key?(envvar)
+  end
+  false
+end
+
+node_modules_dir = '../node_modules'
 
 target 'babycare' do
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks
@@ -8,6 +18,23 @@ target 'babycare' do
   # Pods for babycare
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+
+  pod 'Yoga', :path => "#{node_modules_dir}/react-native/ReactCommon/yoga"
+
+  react_subspecs = [
+    'Core',
+    'RCTActionSheet',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTSettings',
+    'RCTVibration',
+    'RCTText',
+    'RCTNetwork'
+  ]
+  react_subspecs << 'RCTWebSocket' unless ci?
+
+  pod 'React', :path => "#{node_modules_dir}/react-native", :subspecs => react_subspecs
 
   target 'babycareTests' do
     inherit! :search_paths

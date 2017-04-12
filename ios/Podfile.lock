@@ -16,10 +16,53 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - React/Core (0.43.2):
+    - React/cxxreact
+    - Yoga (= 0.43.2.React)
+  - React/cxxreact (0.43.2):
+    - React/jschelpers
+  - React/jschelpers (0.43.2)
+  - React/RCTActionSheet (0.43.2):
+    - React/Core
+  - React/RCTGeolocation (0.43.2):
+    - React/Core
+  - React/RCTImage (0.43.2):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTLinkingIOS (0.43.2):
+    - React/Core
+  - React/RCTNetwork (0.43.2):
+    - React/Core
+  - React/RCTSettings (0.43.2):
+    - React/Core
+  - React/RCTText (0.43.2):
+    - React/Core
+  - React/RCTVibration (0.43.2):
+    - React/Core
+  - React/RCTWebSocket (0.43.2):
+    - React/Core
+  - Yoga (0.43.2.React)
 
 DEPENDENCIES:
   - Firebase/AdMob
   - Firebase/Core
+  - React/Core (from `../node_modules/react-native`)
+  - React/RCTActionSheet (from `../node_modules/react-native`)
+  - React/RCTGeolocation (from `../node_modules/react-native`)
+  - React/RCTImage (from `../node_modules/react-native`)
+  - React/RCTLinkingIOS (from `../node_modules/react-native`)
+  - React/RCTNetwork (from `../node_modules/react-native`)
+  - React/RCTSettings (from `../node_modules/react-native`)
+  - React/RCTText (from `../node_modules/react-native`)
+  - React/RCTVibration (from `../node_modules/react-native`)
+  - React/RCTWebSocket (from `../node_modules/react-native`)
+  - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: ../node_modules/react-native
+  Yoga:
+    :path: ../node_modules/react-native/ReactCommon/yoga
 
 SPEC CHECKSUMS:
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
@@ -28,7 +71,9 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   Google-Mobile-Ads-SDK: d1bcdbd8347a105a687345b8511701172a5074e9
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  React: 4aac60ce5352066b707708d18937453f74c25980
+  Yoga: 6d5c57a774eb338c5d5ea79a11ffac57556bec37
 
-PODFILE CHECKSUM: 8cb07f1c04a6211fa6ea62dbaf5f8bcb5c486a7a
+PODFILE CHECKSUM: 3e64b59013c0aa0fba44a120790815324b791bcb
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1
