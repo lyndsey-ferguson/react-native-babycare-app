@@ -15,6 +15,8 @@ import {
   AdMobRewarded
 } from 'react-native-admob'
 
+import VaccinationView from './VaccinationView'
+
 export default class Babycare extends Component {
   render() {
     return (
@@ -24,9 +26,7 @@ export default class Babycare extends Component {
           <Text style={styles.welcome}>
             Welcome to React Native!
           </Text>
-          <Text style={styles.instructions}>
-            To get started, edit index.ios.js
-          </Text>
+          <VaccinationView data={{name: 'doggy', dose: '1x day'}} />
           <Text style={styles.instructions}>
             Press Cmd+R to reload,{'\n'}
             Cmd+D or shake for dev menu
