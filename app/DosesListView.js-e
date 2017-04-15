@@ -9,9 +9,9 @@ import {
   ListView
 } from 'react-native'
 
-import VaccinationView from './VaccinationView'
+import DoseView from './DoseView'
 
-export default class VaccinationListView extends Component {
+export default class DosesListView extends Component {
   constructor() {
     super();
     const ds = new ListView.DataSource(
@@ -20,23 +20,10 @@ export default class VaccinationListView extends Component {
         sectionHeaderHasChanged: (s1, s2) => s1 !== s2
       }
     );
+    var dosesData = require('./model/doses.json')['es']
+
     this.state = {
-      dataSource: ds.cloneWithRowsAndSections(
-        {
-          'birth' : [
-            {
-              name: 'hepatitis b',
-              dose: '1st dose'
-            }
-          ],
-          '1 to 2 months' : [
-            {
-              name: 'hepatitis b',
-              dose: '2nd dose'
-            }
-          ]
-        }
-      )
+      dataSource: ds.cloneWithRowsAndSections(dosesData)
     };
   }
 
@@ -44,7 +31,7 @@ export default class VaccinationListView extends Component {
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={(rowData) => <VaccinationView data={rowData} />}
+        renderRow={(rowData) => <DoseView data={rowData} />}
         renderSectionHeader={(sectionData, sectionID) => {
           return <Text style={styles.titleText}>{sectionID}</Text>}
         }
@@ -61,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('VaccinationListView', () => VaccinationListView);
+AppRegistry.registerComponent('DosesListView', () => DosesListView);

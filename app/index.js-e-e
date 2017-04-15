@@ -16,14 +16,17 @@ import {
   AdMobRewarded
 } from 'react-native-admob'
 
-import VaccinationListView from './VaccinationListView'
+import DosesListView from './DosesListView'
 
 export default class Babycare extends Component {
+  constructor() {
+    super();
+  }
   render() {
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
-        <VaccinationListView />
+        <DosesListView />
         <AdMobBanner
           bannerSize="fullBanner"
           adUnitID="ca-app-pub-3940256099942544/6300978111"

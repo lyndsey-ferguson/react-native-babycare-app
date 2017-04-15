@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, AppRegistry, StyleSheet } from 'react-native';
 
-export default class VaccinationView extends Component {
+export default class DoseView extends Component {
   constructor() {
     super();
   }
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('VaccinationView', () => VaccinationView);
+AppRegistry.registerComponent('DoseView', () => DoseView);
