@@ -6,7 +6,8 @@ import {
   View,
   ScrollView,
   StatusBar,
-  ListView
+  ListView,
+  Platform
 } from 'react-native'
 
 import DoseView from './DoseView'
@@ -29,7 +30,7 @@ export default class DosesListView extends Component {
 
   render() {
     return (
-      <ListView
+      <ListView style={styles.listView}
         dataSource={this.state.dataSource}
         renderRow={(rowData) => <DoseView data={rowData} />}
         renderSectionHeader={(sectionData, sectionID) => {
@@ -42,7 +43,10 @@ export default class DosesListView extends Component {
 }
 
 const styles = StyleSheet.create({
-  titleText: {
+  listView: {
+    alignSelf: "stretch",
+    padding: 5
+  },
   sectionHeader: {
     fontFamily: (Platform.OS === 'ios') ? 'Thonburi' : 'sans-serif',
     textAlign: 'left',
