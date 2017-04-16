@@ -33,7 +33,8 @@ export default class DosesListView extends Component {
         dataSource={this.state.dataSource}
         renderRow={(rowData) => <DoseView data={rowData} />}
         renderSectionHeader={(sectionData, sectionID) => {
-          return <Text style={styles.titleText}>{sectionID}</Text>}
+          var capitalised = sectionID.charAt(0).toUpperCase() + sectionID.slice(1);
+          return <Text style={styles.sectionHeader}>{capitalised}</Text>}
         }
       />
     );
@@ -42,9 +43,13 @@ export default class DosesListView extends Component {
 
 const styles = StyleSheet.create({
   titleText: {
+  sectionHeader: {
+    fontFamily: (Platform.OS === 'ios') ? 'Thonburi' : 'sans-serif',
     textAlign: 'left',
     color: '#333333',
+    fontWeight: 'bold',
     marginBottom: 5,
+    fontSize: 18
   },
 });
 
