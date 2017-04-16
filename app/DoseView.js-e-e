@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, AppRegistry, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class DoseView extends Component {
   constructor() {
@@ -11,9 +12,12 @@ export default class DoseView extends Component {
 
     return (
       <View style={[styles.container, styles.card]}>
-        <Text style={styles.name}>
-          {name}
-        </Text>
+        <View style={{flexDirection: 'row'}}>
+          <Icon name="circle-thin" size={30} color="#000" style={{paddingHorizontal: 5}} />
+          <Text style={styles.name}>
+            {name}
+          </Text>
+        </View>
         <Text style={styles.dose}>
           {dose}
         </Text>

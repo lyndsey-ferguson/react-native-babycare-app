@@ -35,7 +35,7 @@ target 'babycare' do
   react_subspecs << 'RCTWebSocket' unless ci?
 
   pod 'React', :path => "#{node_modules_dir}/react-native", :subspecs => react_subspecs
-
+  pod 'RNVectorIcons', :path => "#{node_modules_dir}/react-native-vector-icons"
   target 'babycareTests' do
     inherit! :search_paths
     # Pods for testing

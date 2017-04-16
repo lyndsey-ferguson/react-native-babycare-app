@@ -9,7 +9,8 @@
   "dependencies": {
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.2",
-    "react-native-admob": "^1.2.1"
+    "react-native-admob": "^1.2.1",
+    "react-native-vector-icons": "^4.0.1"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
