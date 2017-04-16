@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, AppRegistry, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Bounceable from "react-native-bounceable";
 
 export default class DoseView extends Component {
   constructor() {
@@ -13,7 +14,12 @@ export default class DoseView extends Component {
     return (
       <View style={[styles.container, styles.card]}>
         <View style={{flexDirection: 'row'}}>
-          <Icon name="circle-thin" size={30} color="#000" style={{paddingHorizontal: 5}} />
+          <Bounceable
+              onPress={()=>console.log("Pressed!")}
+              level={1.1}>
+              <Icon name="circle-thin" size={30} color="#000" style={{paddingHorizontal: 5}} />
+            </Bounceable>
+
           <Text style={styles.name}>
             {name}
           </Text>
