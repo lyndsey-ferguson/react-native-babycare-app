@@ -10,7 +10,7 @@ export default class DoseView extends Component {
     const dose = this.props.data.dose;
 
     return (
-      <View style={styles.vaccination}>
+      <View style={[styles.container, styles.card]}>
         <Text style={styles.name}>
           {name}
         </Text>
@@ -23,12 +23,24 @@ export default class DoseView extends Component {
 }
 
 const styles = StyleSheet.create({
-  vaccination: {
+  container: {
     flex: 1,
-    flexDirection: 'column',
-    borderBottomWidth: 1,
-    borderWidth: .5,
-    padding: 10
+    alignItems: 'flex-start',
+    backgroundColor: '#F5FCFF',
+    margin: 5,
+    padding: 3
+  },
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 2,
+    shadowColor: "#000000",
+    shadowOpacity: 0.3,
+    shadowRadius: 1,
+    shadowOffset: {
+      height: 1,
+      width: 0.3,
+    },
+    elevation: 1
   },
   name: {
     flex: 1,
