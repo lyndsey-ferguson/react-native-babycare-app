@@ -1,168 +1,151 @@
 {
-  'en': {
-    'birth' : [
-      {
-        name: 'hepatitis b',
-        dose: '1st dose'
-      }
-    ],
-    '1 to 2 months' : [
-      {
-        name: 'hepatitis b',
-        dose: '2nd dose'
-      }
-    ],
-    '2 months' : [
-      {
-        name: 'Rotavirus (RV)',
-        dose: '1st dose'
-      },
-      {
-        name: 'Diphtheria, tetanus, & acellular pertussis',
-        dose: '1st dose'
-      },
-      {
-        name: 'Haemophilus influenzae type b',
-        dose: '1st dose'
-      },
-      {
-        name: 'Pneumococcal conjugate',
-        dose: '1st dose'
-      },
-      {
-        name: 'Inactivated poliovirus',
-        dose: '1st dose'
-      }
-    ],
-    '2 months to 18 years' : [
-      {
-        name: 'Meningococcal vaccines (for high risk children -- see your doctor)',
-        dose: 'See your doctor'
-      }
-    ]
-  },
-  'es': {
-    'recíen nacio' : [
-      {
-        name: 'tuberculosis',
-        dose: '1st dose'
-      },
-      {
-        name: 'hepatitis b',
-        dose: '1st dose'
-      },
-    ],
-    '2 meses' : [
-      {
-        name: 'neumococo conjugada',
-        dose: '1st dose'
-      },
-      {
-        name: 'quintuple pentavelente',
-        dose: '1st dose'
-      },
-      {
-        name: 'ipv',
-        dose: '1st dose'
-      },
-      {
-        name: 'rotavirus',
-        dose: '1st dose'
-      }
-    ],
-    '4 meses' : [
-      {
-        name: 'neumococo conjugada',
-        dose: '2nd dose'
-      },
-      {
-        name: 'quintuple pentavelente',
-        dose: '2nd dose'
-      },
-      {
-        name: 'ipv',
-        dose: '2nd dose'
-      },
-      {
-        name: 'rotavirus',
-        dose: '2nd dose'
-      }
-    ],
-    '6 meses' : [
-      {
-        name: 'quintuple pentavelente',
-        dose: '3rd dose'
-      },
-      {
-        name: 'opv',
-        dose: '3 doses'
-      }
-    ],
-    '12 meses' : [
-      {
-        name: 'neumococo conjugada',
-        dose: 'refuerzo'
-      },
-      {
-        name: 'hepatitis a',
-        does: 'unico dose'
-      },
-      {
-        name: 'triple viral',
-        dose: '1st dose'
-      },
-      {
-        name: 'antigripal',
-        dose: 'annual dose'
-      }
-    ],
-    '15 meses' : [
-      {
-        name: 'varicela',
-        dose: 'unico dose'
-      },
-      {
-        name: 'opv',
-        dose: '1st refuerzo'
-      },
-      {
-        name: 'cuadruple o quintuple pentavelente',
-        dose: '1st refuerzo'
-      }
-    ],
-    '24 meses' : [
-      {
-        name: 'antigripal',
-        dose: 'annual dose'
-      }
-    ],
-    '5 - 6 años' : [
-      {
-        name: 'opv',
-        dose: '2nd refuerzo'
-      },
-      {
-        name: 'triple viral',
-        dose: '2nd dose'
-      },
-      {
-        name: 'triple bacteriana',
-        dose: '2nd refuerzo'
-      }
-    ],
-    '11 años' : [
-      {
-        name: 'triple viral',
-        dose: 'Iniciar o completar esquema'
-      },
-      {
-        name: 'triple bacteriana',
-        dose: 'Refuerzo'
-      },
-      {
-        name: 'vph',
-        dose: 'niñas'
-      }
-    ]
-  }
+	"en": {
+		"birth": [{
+			"name": "hepatitis b",
+			"dose": "1st dose"
+		}],
+		"1 to 2 months": [{
+			"name": "hepatitis b",
+			"dose": "2nd dose"
+		}],
+		"2 months": [{
+				"name": "Rotavirus (RV)",
+				"dose": "1st dose"
+			},
+			{
+				"name": "Diphtheria, tetanus, & acellular pertussis",
+				"dose": "1st dose"
+			},
+			{
+				"name": "Haemophilus influenzae type b",
+				"dose": "1st dose"
+			},
+			{
+				"name": "Pneumococcal conjugate",
+				"dose": "1st dose"
+			},
+			{
+				"name": "Inactivated poliovirus",
+				"dose": "1st dose"
+			}
+		],
+		"2 months to 18 years": [{
+			"name": "Meningococcal vaccines (for high risk children -- see your doctor)",
+			"dose": "See your doctor"
+		}]
+	},
+	"es": {
+		"recíen nacio": [{
+				"name": "tuberculosis",
+				"dose": "1st dose"
+			},
+			{
+				"name": "hepatitis b",
+				"dose": "1st dose"
+			}
+		],
+		"2 meses": [{
+				"name": "neumococo conjugada",
+				"dose": "1st dose"
+			},
+			{
+				"name": "quintuple pentavelente",
+				"dose": "1st dose"
+			},
+			{
+				"name": "ipv",
+				"dose": "1st dose"
+			},
+			{
+				"name": "rotavirus",
+				"dose": "1st dose"
+			}
+		],
+		"4 meses": [{
+				"name": "neumococo conjugada",
+				"dose": "2nd dose"
+			},
+			{
+				"name": "quintuple pentavelente",
+				"dose": "2nd dose"
+			},
+			{
+				"name": "ipv",
+				"dose": "2nd dose"
+			},
+			{
+				"name": "rotavirus",
+				"dose": "2nd dose"
+			}
+		],
+		"6 meses": [{
+				"name": "quintuple pentavelente",
+				"dose": "3rd dose"
+			},
+			{
+				"name": "opv",
+				"dose": "3 doses"
+			}
+		],
+		"12 meses": [{
+				"name": "neumococo conjugada",
+				"dose": "refuerzo"
+			},
+			{
+				"name": "hepatitis a",
+				"dose": "unico dose"
+			},
+			{
+				"name": "triple viral",
+				"dose": "1st dose"
+			},
+			{
+				"name": "antigripal",
+				"dose": "annual dose"
+			}
+		],
+		"15 meses": [{
+				"name": "varicela",
+				"dose": "unico dose"
+			},
+			{
+				"name": "opv",
+				"dose": "1st refuerzo"
+			},
+			{
+				"name": "cuadruple o quintuple pentavelente",
+				"dose": "1st refuerzo"
+			}
+		],
+		"24 meses": [{
+			"name": "antigripal",
+			"dose": "annual dose"
+		}],
+		"5 - 6 años": [{
+				"name": "opv",
+				"dose": "2nd refuerzo"
+			},
+			{
+				"name": "triple viral",
+				"dose": "2nd dose"
+			},
+			{
+				"name": "triple bacteriana",
+				"dose": "2nd refuerzo"
+			}
+		],
+		"11 años": [{
+				"name": "triple viral",
+				"dose": "Iniciar o completar esquema"
+			},
+			{
+				"name": "triple bacteriana",
+				"dose": "Refuerzo"
+			},
+			{
+				"name": "vph",
+				"dose": "niñas"
+			}
+		]
+	}
 }

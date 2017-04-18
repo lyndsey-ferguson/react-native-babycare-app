@@ -32,7 +32,7 @@ export default class DosesListView extends Component {
     return (
       <ListView style={styles.listView}
         dataSource={this.state.dataSource}
-        renderRow={(rowData) => <DoseView data={rowData} />}
+        renderRow={(rowData, rowId) => <DoseView key={rowId} rowDatadata={rowData} />}
         renderSectionHeader={(sectionData, sectionID) => {
           var capitalised = sectionID.charAt(0).toUpperCase() + sectionID.slice(1);
           return <Text style={styles.sectionHeader}>{capitalised}</Text>}
