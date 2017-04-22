@@ -23,7 +23,7 @@ export default class DoseView extends Component {
               onPress={()=> this.setState({isDoseApplied: !this.state.isDoseApplied})}
               level={1.1}>
               <Icon name={doseAppliedIcon} size={30} color={doseAppliedIconColor} style={{paddingHorizontal: 5}} />
-            </Bounceable>
+          </Bounceable>
 
           <Text style={styles.name}>
             {name}

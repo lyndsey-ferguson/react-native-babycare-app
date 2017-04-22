@@ -14,18 +14,29 @@ import {
   AdMobInterstitial,
   PublisherBanner,
   AdMobRewarded
-} from 'react-native-admob'
+} from 'react-native-admob';
 
-import DosesListView from './DosesListView'
+import DosesListView from './DosesListView';
+import DosesDataSource from './model/DosesDataSource';
+import AddChildModal from './AddChildModal';
 
 export default class Babycare extends Component {
   constructor() {
     super();
+    this.state = {
+      modalVisible: true,
+      babyRecordCount: 0
+    }
+    DosesDataSource.getBabyRecordCount(this)
+  }
+  addBabyRecord(babyRecord) {
+    this.setState({modalVisible: false});
   }
   render() {
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
+        <AddChildModal visible={this.state.modalVisible} onClose={this.addBabyRecord}/>
         <DosesListView />
         <AdMobBanner
           bannerSize="fullBanner"
