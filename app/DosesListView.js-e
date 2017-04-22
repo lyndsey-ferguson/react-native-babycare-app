@@ -28,14 +28,24 @@ export default class DosesListView extends Component {
     };
   }
 
+  getInitialState() {
+    return {
+      dataSource: {}
+    };
+  }
+
   render() {
     return (
       <ListView style={styles.listView}
         dataSource={this.state.dataSource}
-        renderRow={(rowData, rowId) => <DoseView key={rowId} rowDatadata={rowData} />}
+        renderRow={(rowData, sectionID, rowId) => {
+          const theKey = `section:${sectionID};row:${rowId}`;
+          return <DoseView key={theKey} rowDatadata={rowData} />}
+        }
         renderSectionHeader={(sectionData, sectionID) => {
           var capitalised = sectionID.charAt(0).toUpperCase() + sectionID.slice(1);
-          return <Text style={styles.sectionHeader}>{capitalised}</Text>}
+          const theKey = `section:${sectionID}`;
+          return <Text key={theKey} style={styles.sectionHeader}>{capitalised}</Text>}
         }
       />
     );

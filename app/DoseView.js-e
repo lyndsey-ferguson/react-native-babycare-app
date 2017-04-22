@@ -11,6 +11,7 @@ export default class DoseView extends Component {
   render() {
     const name = this.props.data.name;
     const dose = this.props.data.dose;
+
     const doseAppliedIcon = this.state.isDoseApplied ? 'check-circle-o' : 'circle-thin';
     const doseAppliedIconColor = this.state.isDoseApplied ? '#0A0' : '#333';
 
@@ -35,6 +36,13 @@ export default class DoseView extends Component {
     );
   }
 }
+
+DoseView.defaultProps = {
+  data: {
+    name: '',
+    dose: ''
+  }
+};
 
 const styles = StyleSheet.create({
   container: {
