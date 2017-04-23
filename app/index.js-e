@@ -36,7 +36,7 @@ export default class Babycare extends Component {
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
-        <AddChildModal visible={this.state.modalVisible} onClose={this.addBabyRecord}/>
+        <AddChildModal visible={this.state.modalVisible} onClose={this.addBabyRecord.bind(this)}/>
         <DosesListView />
         <AdMobBanner
           bannerSize="fullBanner"
