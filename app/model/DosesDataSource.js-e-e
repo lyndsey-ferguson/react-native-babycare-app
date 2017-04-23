@@ -1,16 +1,31 @@
-
+import { AsyncStorage } from 'react-native';
 
 export default DosesDataSource = {
-  async getBabyRecordCount(component) {
+  async getBabyRecords() {
     try {
-      const babyRecordCount = await AsyncStorage.getItem('#Babycare:babyRecordCount');
-      if (babyRecordCount !== null){
-        // We have data!!
-        component.setState({babyRecordCount: babyRecordCount});
-        console.log('retrieved babyRecordCount:' + babyRecordCount);
-      }
+      const babyRecords = await AsyncStorage.getItem('#Babycare:babyRecords') || '[]';
+
+      return JSON.parse(babyRecords);
     } catch (error) {
       // Error retrieving data
+    }
+  },
+  async addBabyRecord(record) {
+    try {
+      console.log('about to get the babyRecords');
+      this.getBabyRecords().then((babyRecords) =>
+        {
+          console.log('got baby records' + JSON.stringify(babyRecords));
+          babyRecords.push(record);
+          console.log('saving babyrecords: ' + JSON.stringify(babyRecords));
+          AsyncStorage.setItem('#Babycare:babyRecords', JSON.stringify(babyRecords));
+
+          return babyRecords;
+        }
+      );
+    } catch (error) {
+      // Error saving data
+      console.log("error adding baby: " + error);
     }
   }
 }

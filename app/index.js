@@ -24,12 +24,15 @@ export default class Babycare extends Component {
   constructor() {
     super();
     this.state = {
-      modalVisible: true,
+      modalVisible: false,
       babyRecordCount: 0
     }
-    DosesDataSource.getBabyRecordCount(this)
+    DosesDataSource.getBabyRecords().then((babyRecords) => {
+        this.setState({modalVisible: !babyRecords || babyRecords.length === 0});
+    });
   }
   addBabyRecord(babyRecord) {
+    DosesDataSource.addBabyRecord(babyRecord).done();
     this.setState({modalVisible: false});
   }
   render() {
