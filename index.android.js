@@ -2,6 +2,6 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import Babycare from './app/index'
+import AppRoot from './app/AppRoot'
 
 AppRegistry.registerComponent('Babycare', () => Babycare);

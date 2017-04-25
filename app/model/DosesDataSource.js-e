@@ -1,31 +1,43 @@
 import { AsyncStorage } from 'react-native';
 
 export default DosesDataSource = {
-  async getBabyRecords() {
-    try {
-      const babyRecords = await AsyncStorage.getItem('#Babycare:babyRecords') || '[]';
+  babyRecords : undefined,
 
-      return JSON.parse(babyRecords);
+  async getBabyRecords() {
+    if (this.babyRecords) {
+      return this.babyRecords;
+    }
+    try {
+      this.babyRecords = await AsyncStorage.getItem('#Babycare:babyRecords') || [];
+
+      return JSON.parse(this.babyRecords);
     } catch (error) {
       // Error retrieving data
     }
   },
   async addBabyRecord(record) {
     try {
-      console.log('about to get the babyRecords');
-      this.getBabyRecords().then((babyRecords) =>
-        {
-          console.log('got baby records' + JSON.stringify(babyRecords));
-          babyRecords.push(record);
-          console.log('saving babyrecords: ' + JSON.stringify(babyRecords));
-          AsyncStorage.setItem('#Babycare:babyRecords', JSON.stringify(babyRecords));
+      this.babyRecords.push(record);
+      AsyncStorage.setItem('#Babycare:babyRecords', JSON.stringify(this.babyRecords));
 
-          return babyRecords;
-        }
-      );
+      return this.babyRecords;
     } catch (error) {
       // Error saving data
-      console.log("error adding baby: " + error);
+      console.error("error adding baby: " + error);
+    }
+  },
+  async updateBabyRecord(record) {
+    try {
+      const index = this.babyRecords.findIndex((br) => {
+        return br.name === record.name;
+      });
+      if (index !== -1) {
+        this.babyRecords[index] = record;
+      }
+      AsyncStorage.setItem('#Babycare:babyRecords', JSON.stringify(this.babyRecords));
+    } catch (error) {
+      // Error saving data
+      console.error("error adding baby: " + error);
     }
   }
 }

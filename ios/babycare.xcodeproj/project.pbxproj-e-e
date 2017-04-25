@@ -37,6 +37,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* babycareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* babycareTests.m */; };
 		326293CCBCB1497196BC8E40 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A123B1F9AB3C47D3A91B799A /* Zocial.ttf */; };
 		3DBD1A68591988DA8EC4D455 /* libPods-babycare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1952AA5C64FCCFF9D61E9942 /* libPods-babycare.a */; };
+		3E3089F46FED448CAACB4F34 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4564E768CE34D988D5F3423 /* libRNImagePicker.a */; };
 		3FEE416B855F4C28B6C39259 /* libRNAdMobManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2D49DA9FB7400B9B96FCB2 /* libRNAdMobManager.a */; };
 		432B27775F794FA0B0C68BA4 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC77F9BC96A146CEB9578CD8 /* FontAwesome.ttf */; };
 		4DB880503ECC403D88E8C7CC /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C2A1178162B4CA7A7FE043D /* EvilIcons.ttf */; };
@@ -244,6 +245,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		9225329A1EB0B11A00E53327 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EB291887051443F864B50CF /* RNImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
+			remoteInfo = RNImagePicker;
+		};
 		925B51231EA3A25B0024CC5B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F3F1A7C93283416EA2AFE4EA /* RNVectorIcons.xcodeproj */;
@@ -293,6 +301,7 @@
 		5C2A1178162B4CA7A7FE043D /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		5FC3C0FA6EF7447F95A6D43C /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		6EB291887051443F864B50CF /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		77C90D9BADB1C242229BE79C /* Pods-babycare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-babycare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-babycare/Pods-babycare.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		8007A6B660C04D469D644238 /* RNAdMobManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAdMobManager.xcodeproj; path = "../node_modules/react-native-admob/ios/RNAdMobManager.xcodeproj"; sourceTree = "<group>"; };
@@ -302,6 +311,7 @@
 		A123B1F9AB3C47D3A91B799A /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		AB2D49DA9FB7400B9B96FCB2 /* libRNAdMobManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAdMobManager.a; sourceTree = "<group>"; };
 		B3AA0CE514EFE4B7077F3957 /* Pods-babycare-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-babycare-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-babycare-tvOS/Pods-babycare-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		B4564E768CE34D988D5F3423 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		C9B877B6BCE9637E67DB80F0 /* Pods-babycare-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-babycare-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-babycare-tvOS/Pods-babycare-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D7947E3606B04AB5883681C9 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		E080B5521FA845CF8B7025EF /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
@@ -341,6 +351,7 @@
 				3FEE416B855F4C28B6C39259 /* libRNAdMobManager.a in Frameworks */,
 				3DBD1A68591988DA8EC4D455 /* libPods-babycare.a in Frameworks */,
 				7B75B8FDA6CC4B27A62E872C /* libRNVectorIcons.a in Frameworks */,
+				3E3089F46FED448CAACB4F34 /* libRNImagePicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +548,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				8007A6B660C04D469D644238 /* RNAdMobManager.xcodeproj */,
 				F3F1A7C93283416EA2AFE4EA /* RNVectorIcons.xcodeproj */,
+				6EB291887051443F864B50CF /* RNImagePicker.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -572,6 +584,14 @@
 				00E356EE1AD99517003FC87E /* babycareTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* babycare-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* babycare-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9225327D1EB0B11A00E53327 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9225329B1EB0B11A00E53327 /* libRNImagePicker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -781,6 +801,10 @@
 					ProjectRef = 8007A6B660C04D469D644238 /* RNAdMobManager.xcodeproj */;
 				},
 				{
+					ProductGroup = 9225327D1EB0B11A00E53327 /* Products */;
+					ProjectRef = 6EB291887051443F864B50CF /* RNImagePicker.xcodeproj */;
+				},
+				{
 					ProductGroup = 925B51061EA3A25B0024CC5B /* Products */;
 					ProjectRef = F3F1A7C93283416EA2AFE4EA /* RNVectorIcons.xcodeproj */;
 				},
@@ -969,6 +993,13 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9225329B1EB0B11A00E53327 /* libRNImagePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImagePicker.a;
+			remoteRef = 9225329A1EB0B11A00E53327 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		925B51241EA3A25B0024CC5B /* libRNVectorIcons.a */ = {
@@ -1318,12 +1349,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				INFOPLIST_FILE = babycareTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1346,12 +1379,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				INFOPLIST_FILE = babycareTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1375,6 +1410,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				INFOPLIST_FILE = babycare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1398,6 +1434,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				INFOPLIST_FILE = babycare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1428,11 +1465,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				INFOPLIST_FILE = "babycare-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1465,11 +1504,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				INFOPLIST_FILE = "babycare-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1503,6 +1544,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.babycare-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1528,6 +1570,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
