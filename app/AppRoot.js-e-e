@@ -54,7 +54,7 @@ export default class AppRoot extends Component {
     AsyncStorage.setItem('babycareStore', storingValue);
   }
   render() {
-    if(this.state.isStoreLoading){
+    if (this.state.isStoreLoading) {
       return <Text>Loading Store ...</Text>
     }
     return (

@@ -35,8 +35,11 @@ export default class DosesListView extends Component {
   }
 
   render() {
+    const selectedDoses = this.props.selectedDoses || {};
+    const doseTapped = this.props.doseTapped;
     return (
       <ListView style={styles.listView}
+        key={JSON.stringify(selectedDoses)}
         dataSource={this.state.dataSource}
         renderRow={(rowData, sectionID, rowId) => {
           const theKey = `section:${sectionID};row:${rowId}`;
@@ -45,7 +48,8 @@ export default class DosesListView extends Component {
             id={rowData.id}
             name={rowData.name}
             dose={rowData.dose}
-            data={rowData} />}
+            isSelected={!!selectedDoses[rowData.id]}
+            doseTapped={doseTapped}  />}
         }
         renderSectionHeader={(sectionData, sectionID) => {
           var capitalised = sectionID.charAt(0).toUpperCase() + sectionID.slice(1);

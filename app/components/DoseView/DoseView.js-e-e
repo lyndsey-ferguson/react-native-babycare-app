@@ -7,22 +7,17 @@ import Bounceable from "react-native-bounceable";
 import styles from './DoseViewStyleSheet'
 
 export default class DoseView extends Component {
-  constructor() {
-    super();
-    this.state = {isDoseApplied: false};
-  }
   render() {
-    const { name, dose } = this.props;
+    const { id, name, dose, isSelected, doseTapped } = this.props;
 
-    const doseAppliedIcon = this.state.isDoseApplied ? 'check-circle-o' : 'circle-thin';
-    const doseAppliedIconColor = this.state.isDoseApplied ? '#0A0' : '#333';
+    const doseAppliedIcon = isSelected ? 'check-circle-o' : 'circle-thin';
+    const doseAppliedIconColor = isSelected ? '#0A0' : '#333';
 
     return (
-
       <View style={[styles.container, styles.card]}>
         <View style={{flexDirection: 'row'}}>
           <Bounceable
-              onPress={()=> this.setState({isDoseApplied: !this.state.isDoseApplied})}
+              onPress={() => doseTapped(id)}
               level={1.1}>
               <Icon name={doseAppliedIcon} size={30} color={doseAppliedIconColor} style={{paddingHorizontal: 5}} />
           </Bounceable>

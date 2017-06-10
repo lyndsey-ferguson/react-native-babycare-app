@@ -34,7 +34,7 @@ class App extends Component {
           addChild={this.props.addChild}
           />
         <InfoBar babyRecord={currentBabyRecord} changeImage={this.props.changeChildImage} />
-        <DosesListView doseTapped={this.props.doseTapped} />
+        <DosesListView doseTapped={this.props.doseTapped} selectedDoses={currentBabyRecord.selectedDoses}/>
       </View>
     )
   }

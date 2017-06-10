@@ -25,6 +25,7 @@ const babyCareReducer = (state = initialState, action) => {
       const currentBabyRecordId = state.currentBabyRecordId || id;
       const babyRecords = Object.assign({}, state.babyRecords);
       babyRecords[id] = action.babyRecord;
+      babyRecords[id].selectedDoses = {};
       return Object.assign({}, state, {
         currentBabyRecordId,
         babyRecords,
@@ -56,11 +57,10 @@ const babyCareReducer = (state = initialState, action) => {
     }
 
     case DOSE_SELECTED: {
-      console.log('DOSE_SELECTED with doseId: ' + action.doseId);
       const babyRecords = Object.assign({}, state.babyRecords);
-      const doses = Object.assign({}, babyRecords[state.currentBabyRecordId].doses);
-      doses[action.doseId] = !doses[action.doseId];
-      babyRecords[state.currentBabyRecordId].doses = doses;
+      const selectedDoses = Object.assign({}, babyRecords[state.currentBabyRecordId].selectedDoses);
+      selectedDoses[action.doseId] = !selectedDoses[action.doseId];
+      babyRecords[state.currentBabyRecordId].selectedDoses = selectedDoses;
 
       return Object.assign({}, state, {
         babyRecords
