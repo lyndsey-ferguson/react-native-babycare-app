@@ -40,7 +40,11 @@ export default class DosesListView extends Component {
         dataSource={this.state.dataSource}
         renderRow={(rowData, sectionID, rowId) => {
           const theKey = `section:${sectionID};row:${rowId}`;
-          return <DoseView key={theKey} data={rowData} />}
+          return <DoseView
+            key={theKey}
+            id={rowData.id}
+            name={rowData.name}
+            data={rowData} />}
         }
         renderSectionHeader={(sectionData, sectionID) => {
           var capitalised = sectionID.charAt(0).toUpperCase() + sectionID.slice(1);
