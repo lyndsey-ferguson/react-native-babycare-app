@@ -22,8 +22,6 @@ export default class BabyRecord {
     return this._gender;
   }
   set gender(gender) {
-    console.log(`${gender} !== ${_MALE} || ${gender} !== ${_FEMALE} ? ${(gender !== _MALE || gender !== _FEMALE)}`);
-
     if (gender !== _MALE || gender !== _FEMALE) {
       throw 'Error: only BabyRecord.MALE and BabyRecord.FEMALE are valid genders';
     }

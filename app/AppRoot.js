@@ -32,8 +32,8 @@ export default class AppRoot extends Component {
     AppState.addEventListener('change', this._handleAppStateChange.bind(this));
     AsyncStorage.getItem('babycareStore').then((value)=>{
       if(value && value.length){
-        let initialStore = JSON.parse(value)
-        self.setState({store: createStore(reducers, initialStore, middleware)});
+        let initialStore = JSON.parse(value);
+        self.setState({store: createStore(rootReducer, initialStore, applyMiddleware(thunk, logger))});
       }else{
         self.setState({modalVisible: true});
         self.setState({store: store});
@@ -58,7 +58,7 @@ export default class AppRoot extends Component {
       return <Text>Loading Store ...</Text>
     }
     return (
-      <Provider store={store}>
+      <Provider store={this.state.store}>
         <App />
       </Provider>
     )

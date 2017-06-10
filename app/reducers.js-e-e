@@ -17,17 +17,13 @@ const initialState = {
   }
 }
 
-console.log('uuid? ' + uuid.v1());
-
 const babyCareReducer = (state = initialState, action) => {
   switch(action.type) {
     case CHILD_MODAL_ADD: {
-      console.log('CHILD_MODAL_ADD called');
       const id = uuid.v1();
       const currentBabyRecordId = state.currentBabyRecordId || id;
       const babyRecords = Object.assign({}, state.babyRecords);
       babyRecords[id] = action.babyRecord;
-      console.log('babyRecords: ' + JSON.stringify(babyRecords));
       return Object.assign({}, state, {
         currentBabyRecordId,
         babyRecords,
@@ -40,7 +36,6 @@ const babyCareReducer = (state = initialState, action) => {
     }
 
     case CHILD_IMAGE_CHANGED: {
-      console.log('CHILD_IMAGE_CHANGED called');
       const babyRecords = Object.assign({}, state.babyRecords);
       babyRecords[state.currentBabyRecordId].imageSource = action.imageSource;
 
@@ -50,7 +45,6 @@ const babyCareReducer = (state = initialState, action) => {
     }
 
     case CHILD_MODAL_GENDER_CHANGED: {
-      console.log('CHILD_MODAL_GENDER_CHANGED called');
       return Object.assign({}, state, {
         addChildModal: {
           visible: state.addChildModal.visible,
@@ -61,7 +55,6 @@ const babyCareReducer = (state = initialState, action) => {
     }
 
     case CHILD_MODAL_NAME_CHANGED: {
-      console.log('CHILD_MODAL_NAME_CHANGED called');
       return Object.assign({}, state, {
         addChildModal: {
           visible: state.addChildModal.visible,
@@ -72,7 +65,6 @@ const babyCareReducer = (state = initialState, action) => {
     }
 
     default: {
-      console.log('I know not what to do');
       return state;
     }
   }

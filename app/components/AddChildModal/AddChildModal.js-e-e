@@ -24,9 +24,6 @@ export default class AddChildModal extends Component {
       styles.nameInputBlackStyle :
       styles.nameInputGreyStyle;
   }
-  handleGenderButton(gender) {
-    console.log(gender + ' button pressed');
-  }
   renderGenderButton(gender, backgroundColor, buttonTextColor) {
     const fontAwesomeName = gender === 'female' ? 'venus' : 'mars';
 

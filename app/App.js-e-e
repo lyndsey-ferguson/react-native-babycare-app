@@ -20,7 +20,6 @@ import InfoBar from './components/InfoBar/InfoBar';
 
 class App extends Component {
   render() {
-    console.log('App render with props: ' + JSON.stringify(this.props));
     const currentBabyRecord = this.props.babyRecords[this.props.currentBabyRecordId];
 
     return (
@@ -50,7 +49,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  console.log('stateToProps: ' + JSON.stringify(state));
   return {
     currentBabyRecordId: state.babycare.currentBabyRecordId,
     babyRecords: state.babycare.babyRecords,
