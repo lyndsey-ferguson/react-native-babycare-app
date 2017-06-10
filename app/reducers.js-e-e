@@ -5,6 +5,7 @@ import {
   CHILD_IMAGE_CHANGED,
   CHILD_MODAL_GENDER_CHANGED,
   CHILD_MODAL_NAME_CHANGED,
+  DOSE_SELECTED
 } from './actions';
 import uuid from 'react-native-uuid';
 
@@ -51,6 +52,18 @@ const babyCareReducer = (state = initialState, action) => {
           gender: action.gender,
           name: state.addChildModal.name
         }
+      });
+    }
+
+    case DOSE_SELECTED: {
+      console.log('DOSE_SELECTED with doseId: ' + action.doseId);
+      const babyRecords = Object.assign({}, state.babyRecords);
+      const doses = Object.assign({}, babyRecords[state.currentBabyRecordId].doses);
+      doses[action.doseId] = !doses[action.doseId];
+      babyRecords[state.currentBabyRecordId].doses = doses;
+
+      return Object.assign({}, state, {
+        babyRecords
       });
     }
 

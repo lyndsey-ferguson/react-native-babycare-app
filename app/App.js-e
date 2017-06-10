@@ -12,7 +12,8 @@ import {
   showAddChild,
   changeGender,
   changeName,
-  changeChildImage
+  changeChildImage,
+  doseTapped
 } from './actions';
 import AddChildModal from './components/AddChildModal/AddChildModal';
 import DosesListView from './components/DosesListView/DosesListView';
@@ -33,7 +34,7 @@ class App extends Component {
           addChild={this.props.addChild}
           />
         <InfoBar babyRecord={currentBabyRecord} changeImage={this.props.changeChildImage} />
-        <DosesListView />
+        <DosesListView doseTapped={this.props.doseTapped} />
       </View>
     )
   }
@@ -62,7 +63,8 @@ const mapDispatchToProps = (dispatch) => {
     showAddChild,
     changeGender,
     changeName,
-    changeChildImage
+    changeChildImage,
+    doseTapped
   }, dispatch);
 }
 
