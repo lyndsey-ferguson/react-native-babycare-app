@@ -44,6 +44,7 @@ export default class DosesListView extends Component {
             key={theKey}
             id={rowData.id}
             name={rowData.name}
+            dose={rowData.dose}
             data={rowData} />}
         }
         renderSectionHeader={(sectionData, sectionID) => {

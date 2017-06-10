@@ -12,9 +12,7 @@ export default class DoseView extends Component {
     this.state = {isDoseApplied: false};
   }
   render() {
-    const name = this.props.data.name;
-    const { name } = this.props;
-    const dose = this.props.data.dose;
+    const { name, dose } = this.props;
 
     const doseAppliedIcon = this.state.isDoseApplied ? 'check-circle-o' : 'circle-thin';
     const doseAppliedIconColor = this.state.isDoseApplied ? '#0A0' : '#333';
