@@ -59,7 +59,7 @@ const babyCareReducer = (state = initialState, action) => {
     case DOSE_SELECTED: {
       const babyRecords = Object.assign({}, state.babyRecords);
       const selectedDoses = Object.assign({}, babyRecords[state.currentBabyRecordId].selectedDoses);
-      selectedDoses[action.doseId] = !selectedDoses[action.doseId];
+      selectedDoses[action.doseId] = selectedDoses[action.doseId] ? undefined : new Date().toDateString();
       babyRecords[state.currentBabyRecordId].selectedDoses = selectedDoses;
 
       return Object.assign({}, state, {

@@ -30,6 +30,12 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     fontSize: 12,
-    textAlign: 'auto'
+    textAlign: 'left'
+  },
+  timestamp: {
+    flex: 1,
+    flexDirection: 'row',
+    fontSize: 12,
+    textAlign: 'right'
   }
 });

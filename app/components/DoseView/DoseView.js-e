@@ -7,11 +7,27 @@ import Bounceable from "react-native-bounceable";
 import styles from './DoseViewStyleSheet'
 
 export default class DoseView extends Component {
-  render() {
-    const { id, name, dose, isSelected, doseTapped } = this.props;
+  renderTimestamp() {
+    const { doseApplicationDate } = this.props;
 
-    const doseAppliedIcon = isSelected ? 'check-circle-o' : 'circle-thin';
-    const doseAppliedIconColor = isSelected ? '#0A0' : '#333';
+    if (doseApplicationDate === undefined) {
+      return;
+    }
+    const date = new Date(doseApplicationDate);
+
+    return (
+      <Text style={styles.timestamp}>
+        {date.toLocaleDateString()}
+      </Text>
+    );
+  }
+  render() {
+    const { id, name, dose, doseApplicationDate, doseTapped } = this.props;
+
+    const doseAppliedIcon = doseApplicationDate != undefined ? 'check-circle-o' : 'circle-thin';
+    const doseAppliedIconColor = doseApplicationDate != undefined ? '#0A0' : '#333';
+
+    const renderedTimestamp = this.renderTimestamp();
 
     return (
       <View style={[styles.container, styles.card]}>
@@ -26,9 +42,12 @@ export default class DoseView extends Component {
             {name}
           </Text>
         </View>
-        <Text style={styles.dose}>
-          {dose}
-        </Text>
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={styles.dose}>
+            {dose}
+          </Text>
+          {renderedTimestamp}
+        </View>
       </View>
     );
   }

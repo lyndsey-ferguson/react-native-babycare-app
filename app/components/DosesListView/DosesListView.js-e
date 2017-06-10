@@ -48,7 +48,7 @@ export default class DosesListView extends Component {
             id={rowData.id}
             name={rowData.name}
             dose={rowData.dose}
-            isSelected={!!selectedDoses[rowData.id]}
+            doseApplicationDate={selectedDoses[rowData.id]}
             doseTapped={doseTapped}  />}
         }
         renderSectionHeader={(sectionData, sectionID) => {
