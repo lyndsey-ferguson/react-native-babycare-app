@@ -10,9 +10,11 @@ import {
   StatusBar,
   ListView,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity
 } from 'react-native';
 import styles from './InfoBarStyleSheet';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class InfoBar extends Component {
   getChildPhoto() {
@@ -54,7 +56,7 @@ export default class InfoBar extends Component {
     else if (babyRecord.gender === 'male') {
       return require(`../../res/boy-profile.png`);
     }
-    else if (babyRecord.gender === 'girl') {
+    else if (babyRecord.gender === 'female') {
       return require(`../../res/girl-profile.png`);
     }
     else {
@@ -62,26 +64,56 @@ export default class InfoBar extends Component {
       return undefined;
     }
   }
+  renderNameWidget() {
+    const { babyRecord, babyRecords } = this.props;
+    if (babyRecords.length == 1) {
+      return (<Text style={styles.name}>{babyRecord.name}</Text>);
+    }
+    else {
+      const { name, gender } = this.props;
+
+      return (
+        <TouchableOpacity
+          backgroundColor={'#AAFFAA'}
+          style={{borderColor: '#55AA55', flexDirection: 'row', }}
+          onPress={() => this.props.setSelectChildModalVisibility(true)}
+        >
+          <Text style={{color: '#FFFFFF'}}>{babyRecord.name}</Text>
+          <Icon name="angle-down" size={30} color="#FFFFFF" />
+        </TouchableOpacity>
+      );
+    }
+  }
   render() {
-    const { babyRecord } = this.props;
+    const { babyRecord, babyRecords } = this.props;
     if (!babyRecord) {
       return undefined;
     }
 
     const isBoy = babyRecord.gender == 'male';
 
+    const renderedNameWidget = this.renderNameWidget();
+
     return (
       <View style={styles.infobar}>
-        <TouchableHighlight
-          style={[styles.imageContainer, isBoy ? styles.avatarBackgroundColorBoy : styles.avatarBackgroundColorGirl]}
-          onPress={this.getChildPhoto.bind(this)}
-          >
-          <Image
-            source={this.imageSource()}
-            style={styles.image} >
-          </Image>
-        </TouchableHighlight>
-        <Text style={styles.name}>{babyRecord.name}</Text>
+        <View style={{ flexDirection: 'row' }}>
+          <TouchableHighlight
+            style={[styles.imageContainer, isBoy ? styles.avatarBackgroundColorBoy : styles.avatarBackgroundColorGirl]}
+            onPress={this.getChildPhoto.bind(this)}
+            >
+            <Image
+              source={this.imageSource()}
+              style={styles.image} >
+            </Image>
+          </TouchableHighlight>
+          {renderedNameWidget}
+        </View>
+        <Icon.Button
+          style={{ marginTop: 7 }}
+          name={'plus-circle'}
+          backgroundColor={'#800020'}
+          onPress={() => this.props.setAddChildModalVisibility(true)}
+        />
       </View>
     );
   }

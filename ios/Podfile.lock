@@ -44,7 +44,7 @@ PODS:
     - React/Core
   - React/RCTWebSocket (0.43.2):
     - React/Core
-  - RNVectorIcons (4.0.1):
+  - RNVectorIcons (4.2.0):
     - React
   - Yoga (0.43.2.React)
 
@@ -80,7 +80,7 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 43ac87810e4961f5093024d3525bfe022f956da3
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   React: 4aac60ce5352066b707708d18937453f74c25980
-  RNVectorIcons: df0ada1195e3b7c47351897c00f55fd9b8c7aa84
+  RNVectorIcons: 6d98d83e944d15014d8071dd9819beb094c61133
   Yoga: 6d5c57a774eb338c5d5ea79a11ffac57556bec37
 
 PODFILE CHECKSUM: 7118a8fad9231d4316a11a59b7c5b48da8b6c70c

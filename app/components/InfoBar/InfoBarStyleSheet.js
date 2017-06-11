@@ -27,10 +27,20 @@ export default StyleSheet.create({
     marginLeft: 12,
     color: '#FFFFFF'
   },
+  dropdown: {
+    alignSelf: 'stretch'
+  },
+  otherChildren: {
+    fontSize: 20,
+    marginTop: 12,
+    marginLeft: 12,
+    color: '#000000'
+  },
   infobar: {
     height: 48,
     flexDirection: 'row',
     backgroundColor: '#800020',
+    justifyContent: 'space-between',
     alignSelf: 'stretch'
   }
 });

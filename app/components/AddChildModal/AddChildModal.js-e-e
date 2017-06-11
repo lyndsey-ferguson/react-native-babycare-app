@@ -11,14 +11,6 @@ import styles from './AddChildModalStyleSheet'
 import { changeGender, changeName } from '../../actions';
 
 export default class AddChildModal extends Component {
-  constructor() {
-    super();
-    this.state = {
-      gender: undefined,
-      name: '',
-      nameInputFocused: false
-    }
-  }
   nameInputColor() {
     return this.props.name && this.props.name.length > 0 ?
       styles.nameInputBlackStyle :
@@ -81,29 +73,53 @@ export default class AddChildModal extends Component {
       </View>
     );
   }
-  renderSubmitButton() {
+  renderCancelButton() {
     const { name, gender } = this.props;
 
+    return (
+      <Icon.Button
+        name='ban'
+        backgroundColor={'#AAFFAA'}
+        style={{borderColor: '#55AA55'}}
+        onPress={() => this.props.setAddChildModalVisibility(false)}
+      >
+        <Text style={{color: '#000000'}}>Cancel</Text>
+      </Icon.Button>
+    );
+  }
+  renderCompletionButtons() {
+    const { name, gender, allowCancel } = this.props;
+
+    const renderedCancelButton = allowCancel ? this.renderCancelButton()  : undefined;
+
     if (name === '' || gender === '') {
-      return undefined;
+      return (
+        <View style={{marginTop: 10, alignItems: 'center'}}>
+          {renderedCancelButton}
+        </View>
+      );
     }
     return (
-      <View style={{marginTop: 10, alignItems: 'center'}}>
-        <Icon.Button
-          name='heart'
-          backgroundColor={'#AAFFAA'}
-          style={{borderColor: '#55AA55'}}
-          onPress={() => this.props.addChild({ name, gender })}
-        >
-          <Text style={{color: '#000000'}}>Add Child</Text>
-        </Icon.Button>
+      <View style={{marginTop: 10, alignItems: 'center' }}>
+        <View style={{flexDirection: 'row'}}>
+          {renderedCancelButton}
+          <Text> </Text>
+          <Icon.Button
+            name='heart'
+            backgroundColor={'#AAFFAA'}
+            style={{borderColor: '#55AA55'}}
+            onPress={() => this.props.addChild({ name, gender })}
+          >
+            <Text style={{color: '#000000'}}>Add Child</Text>
+          </Icon.Button>
+        </View>
       </View>
     );
   }
   render() {
     const renderedGenderButtons = this.renderGenderButtons();
     const renderedNameWidget = this.renderNames();
-    const renderedSubmitButton = this.renderSubmitButton();
+    const renderedSubmitButton = this.renderCompletionButtons();
 
     return (
       <Modal

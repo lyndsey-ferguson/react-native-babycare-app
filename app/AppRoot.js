@@ -18,11 +18,18 @@ const logger = createLogger();
 const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
 const store = createStoreWithMiddleware(rootReducer);
 
+if (module.hot) {
+  module.hot.accept(() => {
+    console.log('accepting');
+    const nextRootReducer = require('./reducers').default;
+    store.replaceReducer(nextRootReducer);
+  });
+}
+
 export default class AppRoot extends Component {
   constructor() {
     super();
     this.state = {
-      modalVisible: false,
       isLoadingStore: false
     }
   }
@@ -35,7 +42,6 @@ export default class AppRoot extends Component {
         let initialStore = JSON.parse(value);
         self.setState({store: createStore(rootReducer, initialStore, applyMiddleware(thunk, logger))});
       }else{
-        self.setState({modalVisible: true});
         self.setState({store: store});
       }
       self.setState({isStoreLoading: false});
@@ -43,7 +49,6 @@ export default class AppRoot extends Component {
 
       self.setState({store: store});
       self.setState({isStoreLoading: false});
-      self.setState({modalVisible: true});
     })
   }
   componentWillUnmount() {
