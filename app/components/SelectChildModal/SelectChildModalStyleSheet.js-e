@@ -5,7 +5,12 @@ const NAV_BAR_HEIGHT = 44;
 const STATUS_BAR_HEIGHT = 20;
 
 export default StyleSheet.create({
+  modalContent: {
+    backgroundColor: '#ECE9E9',
+    flex: 1
+  },
   listView: {
+    marginTop: 10,
     alignSelf: "stretch",
     padding: 5
   },
@@ -18,7 +23,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'flex-start',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FFFFFF',
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: '#bbb',
     padding: 5

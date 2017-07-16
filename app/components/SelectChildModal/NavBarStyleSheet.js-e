@@ -6,7 +6,8 @@ export default StyleSheet.create({
     height: 60,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#800020'
   },
   leftContainer: {
     flex: 1,

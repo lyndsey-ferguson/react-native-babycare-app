@@ -36,9 +36,9 @@ export default class SelectChildModal extends Component {
 
   renderChildItem(key, childName, childId) {
     return (
-        <View style={styles.container}>
-        <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity onPress={() => this.props.childChanged(childId)}>
+      <View style={styles.container}>
+        <View style={{flexDirection: 'row' }}>
+          <TouchableOpacity style={{ flex: 1 }} onPress={() => this.props.childChanged(childId)}>
             <Text style={styles.name}>
               {childName}
             </Text>
@@ -67,7 +67,7 @@ export default class SelectChildModal extends Component {
         <View style={navBarStyles.leftContainer}>
           <Button onPress={this.props.cancel} title='Cancel' />
         </View>
-        <Text style={{ fontSize: 18 }}>
+        <Text style={{ fontSize: 18, color: '#FFFFFF' }}>
           Select Child
         </Text>
         <View style={navBarStyles.rightContainer}>
@@ -89,8 +89,10 @@ export default class SelectChildModal extends Component {
         transparent={false}
         visible={this.props.visible}
       >
-        {renderedCancelButton}
-        {renderedChildrenListView}
+        <View style={styles.modalContent}>
+          {renderedCancelButton}
+          {renderedChildrenListView}
+        </View>
       </Modal>
     );
   }
