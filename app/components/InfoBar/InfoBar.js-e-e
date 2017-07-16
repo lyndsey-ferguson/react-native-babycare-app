@@ -75,10 +75,10 @@ export default class InfoBar extends Component {
       return (
         <TouchableOpacity
           backgroundColor={'#AAFFAA'}
-          style={{borderColor: '#55AA55', flexDirection: 'row', }}
+          style={{borderColor: '#55AA55', flexDirection: 'row', alignItems: 'center' }}
           onPress={() => this.props.setSelectChildModalVisibility(true)}
         >
-          <Text style={{color: '#FFFFFF'}}>{babyRecord.name}</Text>
+          <Text style={{color: '#FFFFFF', paddingHorizontal: 10 }}>{babyRecord.name}</Text>
           <Icon name="angle-down" size={30} color="#FFFFFF" />
         </TouchableOpacity>
       );
