@@ -39,6 +39,7 @@ class App extends Component {
           changeGender={this.props.changeGender}
           changeName={this.props.changeName}
           addChild={this.props.addChild}
+          cancel={() => this.props.setAddChildModalVisibility(false)}
           setAddChildModalVisibility={this.props.setAddChildModalVisibility}
           />
         <SelectChildModal

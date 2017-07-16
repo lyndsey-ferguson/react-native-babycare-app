@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import styles from './SelectChildModalStyleSheet';
-import navBarStyles from './NavBarStyleSheet';
+import navBarStyles from '../_shared/NavBarStyleSheet';
 
 export default class SelectChildModal extends Component {
   constructor() {

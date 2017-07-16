@@ -2,6 +2,10 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  modalContent: {
+    backgroundColor: '#ECE9E9',
+    flex: 1
+  },
   nameContainer: {
     flexDirection: 'row',
     marginLeft: 5,

@@ -3,18 +3,53 @@ import {
   Modal,
   TextInput,
   Text,
-  View
+  View,
+  Button
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import styles from './AddChildModalStyleSheet'
+import styles from './AddChildModalStyleSheet';
+import navBarStyles from '../_shared/NavBarStyleSheet';
 import { changeGender, changeName } from '../../actions';
 
 export default class AddChildModal extends Component {
-  nameInputColor() {
-    return this.props.name && this.props.name.length > 0 ?
-      styles.nameInputBlackStyle :
-      styles.nameInputGreyStyle;
+  renderCancelButton() {
+    const { allowCancel } = this.props;
+    if (allowCancel) {
+      return (<Button onPress={this.props.cancel} title='Cancel' />)
+    } else {
+      return (<View/>)
+    }
+  }
+  renderAddButton() {
+    const { name, gender } = this.props;
+
+    return (
+      <Button
+        disabled={(name === '' || gender === '')}
+        onPress={() => this.props.addChild({ name, gender })}
+        title='Add' />
+    );
+  }
+  renderNavBar() {
+    const { name, gender, allowCancel } = this.props;
+
+    const renderedCancelButton = this.renderCancelButton();
+    const renderedAddButton = this.renderAddButton();
+
+    return (
+      <View style={navBarStyles.navBar}>
+        <View style={navBarStyles.leftContainer}>
+          {renderedCancelButton}
+        </View>
+        <Text style={{ fontSize: 18, color: '#FFFFFF' }}>
+          New Child
+        </Text>
+        <View style={navBarStyles.rightContainer}>
+          {renderedAddButton}
+        </View>
+      </View>
+    );
   }
   renderGenderButton(gender, backgroundColor, buttonTextColor) {
     const fontAwesomeName = gender === 'female' ? 'venus' : 'mars';
@@ -73,20 +108,6 @@ export default class AddChildModal extends Component {
       </View>
     );
   }
-  renderCancelButton() {
-    const { name, gender } = this.props;
-
-    return (
-      <Icon.Button
-        name='ban'
-        backgroundColor={'#AAFFAA'}
-        style={{borderColor: '#55AA55'}}
-        onPress={() => this.props.setAddChildModalVisibility(false)}
-      >
-        <Text style={{color: '#000000'}}>Cancel</Text>
-      </Icon.Button>
-    );
-  }
   renderCompletionButtons() {
     const { name, gender, allowCancel } = this.props;
 
@@ -119,7 +140,7 @@ export default class AddChildModal extends Component {
   render() {
     const renderedGenderButtons = this.renderGenderButtons();
     const renderedNameWidget = this.renderNames();
-    const renderedSubmitButton = this.renderCompletionButtons();
+    const renderedNavBar = this.renderNavBar();
 
     return (
       <Modal
@@ -127,9 +148,9 @@ export default class AddChildModal extends Component {
         transparent={false}
         visible={this.props.visible}
         onRequestClose={() => {alert("Modal has been closed.")}} >
-        {renderedGenderButtons}
+        {renderedNavBar}
         {renderedNameWidget}
-        {renderedSubmitButton}
+        {renderedGenderButtons}
       </Modal>
     );
   }
