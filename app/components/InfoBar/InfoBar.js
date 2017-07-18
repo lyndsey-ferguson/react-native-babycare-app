@@ -66,7 +66,7 @@ export default class InfoBar extends Component {
   }
   renderNameWidget() {
     const { babyRecord, babyRecords } = this.props;
-    if (babyRecords.length == 1) {
+    if (Object.keys(babyRecords).length == 1) {
       return (<Text style={styles.name}>{babyRecord.name}</Text>);
     }
     else {
