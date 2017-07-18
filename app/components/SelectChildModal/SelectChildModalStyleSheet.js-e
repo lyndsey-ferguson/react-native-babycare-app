@@ -18,10 +18,12 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     fontSize: 20,
-    textAlign: 'auto'
+    textAlign: 'auto',
+    borderColor: '#000000'
   },
   container: {
     flex: 1,
+    flexDirection: 'row',
     alignItems: 'flex-start',
     backgroundColor: '#FFFFFF',
     borderBottomWidth: StyleSheet.hairlineWidth,

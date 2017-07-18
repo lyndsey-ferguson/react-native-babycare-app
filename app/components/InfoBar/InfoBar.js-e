@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import ImagePicker from 'react-native-image-picker';
 import {
   AppRegistry,
@@ -76,7 +75,7 @@ export default class InfoBar extends Component {
         <TouchableOpacity
           backgroundColor={'#AAFFAA'}
           style={{borderColor: '#55AA55', flexDirection: 'row', alignItems: 'center' }}
-          onPress={() => this.props.setSelectChildModalVisibility(true)}
+          onPress={() => this.props.SetManageChildDialogDisplay(true, babyRecords)}
         >
           <Text style={{color: '#FFFFFF', paddingHorizontal: 10 }}>{babyRecord.name}</Text>
           <Icon name="angle-down" size={30} color="#FFFFFF" />
@@ -112,29 +111,9 @@ export default class InfoBar extends Component {
           style={{ marginTop: 7 }}
           name={'plus-circle'}
           backgroundColor={'#800020'}
-          onPress={() => this.props.setAddChildModalVisibility(true)}
+          onPress={() => this.props.SetAddChildDialogDisplay(true, true)}
         />
       </View>
     );
   }
 }
-
-InfoBar.propTypes = {
-  babyRecord: PropTypes.shape({
-    name: PropTypes.string,
-    gender: PropTypes.string,
-    uuid: PropTypes.string,
-    imageSource: PropTypes.object
-  }),
-  imageChanged: (imageSource) => {}
-};
-
-InfoBar.defaultProps = {
-  babyRecord: {
-    name: 'unknown',
-    gender: undefined,
-    id: '',
-    imageSource: undefined,
-  },
-  imageChanged: PropTypes.func
-};

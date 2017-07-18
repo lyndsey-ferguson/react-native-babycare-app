@@ -16,18 +16,18 @@ export default class AddChildModal extends Component {
   renderCancelButton() {
     const { allowCancel } = this.props;
     if (allowCancel) {
-      return (<Button onPress={this.props.cancel} title='Cancel' />)
+      return (<Button onPress={() => this.props.SetDisplay(false)} title='Cancel' />)
     } else {
       return (<View/>)
     }
   }
   renderAddButton() {
-    const { name, gender } = this.props;
+    const { name, gender, AddChild } = this.props;
 
     return (
       <Button
         disabled={(name === '' || gender === '')}
-        onPress={() => this.props.addChild({ name, gender })}
+        onPress={() => AddChild({ name, gender })}
         title='Add' />
     );
   }
@@ -58,7 +58,7 @@ export default class AddChildModal extends Component {
       <Icon.Button
         name={fontAwesomeName}
         backgroundColor={backgroundColor}
-        onPress={() => this.props.changeGender(gender)}
+        onPress={() => this.props.ChangeGender(gender)}
       >
         <Text style={{color: buttonTextColor}}>{gender}</Text>
       </Icon.Button>
@@ -94,6 +94,8 @@ export default class AddChildModal extends Component {
     );
   }
   renderNames() {
+    const { name, ChangeName } = this.props;
+
     const nameLabel = 'Name:';
     return (
       <View style={styles.nameContainer}>
@@ -101,15 +103,15 @@ export default class AddChildModal extends Component {
         <TextInput
           placeholder={'Type child\'s name'}
           placeholderTextColor={'#AAAAAA'}
-          value={this.props.name}
-          onChangeText={(text) => this.props.changeName(text)}
+          value={name}
+          onChangeText={(text) => ChangeName(text)}
           style={styles.nameInput}
           clearButtonMode={'always'} />
       </View>
     );
   }
   renderCompletionButtons() {
-    const { name, gender, allowCancel } = this.props;
+    const { name, gender, allowCancel, AddChild} = this.props;
 
     const renderedCancelButton = allowCancel ? this.renderCancelButton()  : undefined;
 
@@ -129,7 +131,7 @@ export default class AddChildModal extends Component {
             name='heart'
             backgroundColor={'#AAFFAA'}
             style={{borderColor: '#55AA55'}}
-            onPress={() => this.props.addChild({ name, gender })}
+            onPress={() => AddChild({ name, gender })}
           >
             <Text style={{color: '#000000'}}>Add Child</Text>
           </Icon.Button>
@@ -141,7 +143,6 @@ export default class AddChildModal extends Component {
     const renderedGenderButtons = this.renderGenderButtons();
     const renderedNameWidget = this.renderNames();
     const renderedNavBar = this.renderNavBar();
-
     return (
       <Modal
         animationType={"slide"}
@@ -154,12 +155,4 @@ export default class AddChildModal extends Component {
       </Modal>
     );
   }
-}
-
-AddChildModal.propTypes = {
-  gender: React.PropTypes.string.isRequired,
-  name: React.PropTypes.string.isRequired,
-  changeGender: React.PropTypes.func.isRequired,
-  changeName: React.PropTypes.func.isRequired,
-  addChild: React.PropTypes.func.isRequired
 }

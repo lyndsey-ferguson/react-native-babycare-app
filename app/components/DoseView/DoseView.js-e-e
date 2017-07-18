@@ -53,11 +53,4 @@ export default class DoseView extends Component {
   }
 }
 
-DoseView.defaultProps = {
-  data: {
-    name: '',
-    dose: ''
-  }
-};
-
 AppRegistry.registerComponent('DoseView', () => DoseView);

@@ -20,7 +20,6 @@ const store = createStoreWithMiddleware(rootReducer);
 
 if (module.hot) {
   module.hot.accept(() => {
-    console.log('accepting');
     const nextRootReducer = require('./reducers').default;
     store.replaceReducer(nextRootReducer);
   });
@@ -46,7 +45,6 @@ export default class AppRoot extends Component {
       }
       self.setState({isStoreLoading: false});
     }).catch((error)=>{
-
       self.setState({store: store});
       self.setState({isStoreLoading: false});
     })

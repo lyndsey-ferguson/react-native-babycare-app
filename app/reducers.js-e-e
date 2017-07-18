@@ -1,61 +1,36 @@
 
 import { combineReducers } from 'redux';
 import {
-  CHILD_MODAL_ADD,
   CHILD_IMAGE_CHANGED,
-  CHILD_MODAL_GENDER_CHANGED,
-  CHILD_MODAL_NAME_CHANGED,
   DOSE_SELECTED,
-  ADD_CHILD_MODAL_DISPLAY,
-  SELECT_CHILD_MODAL_DISPLAY,
-  SELECT_CHILD_MODAL_CHILD_SELECTED,
-  SELECT_CHILD_MODAL_CHILD_CHANGED
 } from './actions';
+import {
+  ACTION_ADD_CHILD
+} from './actions/AddChildActions';
+import {
+  ACTION_CHANGE_CHILDREN,
+  ACTION_SELECT_CHILD
+} from './actions/ManageChildActions';
 import uuid from 'react-native-uuid';
+import AddChildModalReducer from './reducers/AddChildModalReducer';
+import ManageChildModalReducer from './reducers/ManageChildModalReducer';
 
 const initialState = {
   currentBabyRecordId: undefined,
-  babyRecords: {},
-  addChildModal: {
-    visible: true,
-    allowCancel: false,
-    gender: '',
-    name: ''
-  },
-  selectChildModal: {
-    visible: false,
-    selectedId: -1
-  }
+  babyRecords: {}
 }
 
 const babyCareReducer = (state = initialState, action) => {
   switch(action.type) {
-    case CHILD_MODAL_ADD: {
+    case ACTION_ADD_CHILD: {
       const id = uuid.v1();
       const currentBabyRecordId = state.currentBabyRecordId || id;
       const babyRecords = Object.assign({}, state.babyRecords);
-      babyRecords[id] = action.babyRecord;
+      babyRecords[id] = action.child;
       babyRecords[id].selectedDoses = {};
       return Object.assign({}, state, {
         currentBabyRecordId,
-        babyRecords,
-        addChildModal: {
-          visible: false,
-          allowCancel: false,
-          gender: '',
-          name: ''
-        }
-      });
-    }
-
-    case ADD_CHILD_MODAL_DISPLAY: {
-      return Object.assign({}, state, {
-        addChildModal: {
-          visible: action.visibility,
-          allowCancel: true,
-          gender: '',
-          name: ''
-        }
+        babyRecords
       });
     }
 
@@ -65,17 +40,6 @@ const babyCareReducer = (state = initialState, action) => {
 
       return Object.assign({}, state, {
         babyRecords
-      });
-    }
-
-    case CHILD_MODAL_GENDER_CHANGED: {
-      return Object.assign({}, state, {
-        addChildModal: {
-          visible: state.addChildModal.visible,
-          allowCancel: state.addChildModal.allowCancel,
-          gender: action.gender,
-          name: state.addChildModal.name
-        }
       });
     }
 
@@ -90,42 +54,21 @@ const babyCareReducer = (state = initialState, action) => {
       });
     }
 
-    case CHILD_MODAL_NAME_CHANGED: {
+    case ACTION_SELECT_CHILD: {
       return Object.assign({}, state, {
-        addChildModal: {
-          visible: state.addChildModal.visible,
-          allowCancel: state.addChildModal.allowCancel,
-          gender: state.addChildModal.gender,
-          name: action.name
-        }
+        currentBabyRecordId: action.childIdToSelect
       });
     }
 
-    case SELECT_CHILD_MODAL_DISPLAY: {
-      return Object.assign({}, state, {
-        selectChildModal: {
-          visible: action.visibility
-        }
-      });
-    }
+    case ACTION_CHANGE_CHILDREN: {
+      const currentBabyRecordId = state.currentBabyRecordId in action.babyRecords ?
+        state.currentBabyRecordId :
+        Object.keys(action.babyRecords)[0];
 
-    case SELECT_CHILD_MODAL_CHILD_SELECTED: {
       return Object.assign({}, state, {
-        selectChildModal: {
-          visible: state.selectChildModal.visible,
-          selectedId: action.selectedId
-        }
-      });
-    }
-
-    case SELECT_CHILD_MODAL_CHILD_CHANGED: {
-      return Object.assign({}, state, {
-        selectChildModal: {
-          visible: false,
-          selectedId: -1
-        },
-        currentBabyRecordId: action.childId
-      });
+        babyRecords: action.babyRecords,
+        currentBabyRecordId
+      })
     }
 
     default: {
@@ -134,6 +77,8 @@ const babyCareReducer = (state = initialState, action) => {
   }
 };
 
-const rootReducer = combineReducers({babycare: babyCareReducer});
-
-export default rootReducer;
+export default combineReducers({
+  babycare: babyCareReducer,
+  addChildModal : AddChildModalReducer,
+  manageChildModal: ManageChildModalReducer
+});

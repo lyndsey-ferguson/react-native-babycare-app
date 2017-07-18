@@ -8,55 +8,68 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import {
-  addChild,
-  setAddChildModalVisibility,
-  changeGender,
-  changeName,
   changeChildImage,
   doseTapped,
-  setSelectChildModalVisibility,
-  childSelected,
-  childChanged
 } from './actions';
 import AddChildModal from './components/AddChildModal/AddChildModal';
 import DosesListView from './components/DosesListView/DosesListView';
 import InfoBar from './components/InfoBar/InfoBar';
 import SelectChildModal from './components/SelectChildModal/SelectChildModal';
+import * as AddChildActionCreators from './actions/AddChildActionCreators';
+import * as ManageChildActionCreators from './actions/ManageChildActionCreators';
 
 class App extends Component {
-  render() {
+  componentWillReceiveProps(nextProps) {
+    console.log('App::componentWillReceiveProps: ' + JSON.stringify(nextProps));
+  }
+  renderAddChildModal() {
+    return (
+      <AddChildModal
+        {...this.props.addChildModal}
+        {...this.props.BoundAddChildActionCreators}
+      />
+    );
+  }
+
+  renderManageChildModal() {
+    return (
+      <SelectChildModal
+        {...this.props.manageChildModal}
+        {...this.props.BoundManageChildActionCreators}
+       />
+    );
+  }
+
+  renderInfoBar() {
     const currentBabyRecord = this.props.babyRecords[this.props.currentBabyRecordId] || {};
-    const selectedDoses = currentBabyRecord.selectedDoses || [];
-    console.log('babyRecords: ' + JSON.stringify(this.props.babyRecords));
+
+    return (
+      <InfoBar
+        babyRecord={currentBabyRecord}
+        babyRecords={this.props.babyRecords}
+        changeImage={this.props.changeChildImage}
+        SetManageChildDialogDisplay={this.props.BoundManageChildActionCreators.SetDisplay}
+        SetAddChildDialogDisplay={this.props.BoundAddChildActionCreators.SetDisplay} />
+    );
+  }
+
+  render() {
+
+    const currentBabyRecord = this.props.babyRecords[this.props.currentBabyRecordId] || {};
+
+    const renderedAddChildModal = this.renderAddChildModal();
+    const renderedSelectChildModal = this.renderManageChildModal();
+    const renderedInfoBar = this.renderInfoBar();
+
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
-        <AddChildModal
-          visible={this.props.addChildModal.visible}
-          allowCancel={this.props.addChildModal.allowCancel}
-          gender={this.props.addChildModal.gender}
-          name={this.props.addChildModal.name}
-          changeGender={this.props.changeGender}
-          changeName={this.props.changeName}
-          addChild={this.props.addChild}
-          cancel={() => this.props.setAddChildModalVisibility(false)}
-          setAddChildModalVisibility={this.props.setAddChildModalVisibility}
-          />
-        <SelectChildModal
-          visible={this.props.selectChildModal.visible}
-          childSelected={this.props.childSelected}
-          childChanged={this.props.childChanged}
-          currentBabyRecordId={this.props.currentBabyRecordId}
-          cancel={() => this.props.setSelectChildModalVisibility(false)}
-          babyRecords={this.props.babyRecords}
-         />
-        <InfoBar
-          babyRecord={currentBabyRecord}
-          babyRecords={this.props.babyRecords}
-          changeImage={this.props.changeChildImage}
-          setAddChildModalVisibility={this.props.setAddChildModalVisibility}
-          setSelectChildModalVisibility={this.props.setSelectChildModalVisibility} />
-        <DosesListView doseTapped={this.props.doseTapped} selectedDoses={currentBabyRecord.selectedDoses}/>
+        { renderedAddChildModal }
+        { renderedSelectChildModal }
+        { renderedInfoBar }
+        <DosesListView
+          doseTapped={this.props.doseTapped}
+          selectedDoses={currentBabyRecord.selectedDoses} />
       </View>
     )
   }
@@ -75,23 +88,27 @@ const mapStateToProps = (state) => {
   return {
     currentBabyRecordId: state.babycare.currentBabyRecordId,
     babyRecords: state.babycare.babyRecords,
-    addChildModal: state.babycare.addChildModal,
-    selectChildModal: state.babycare.selectChildModal
+    addChildModal: state.addChildModal,
+    manageChildModal: state.manageChildModal
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    addChild,
-    changeGender,
-    changeName,
+  const boundBabyActionCreators = bindActionCreators({
     changeChildImage,
-    doseTapped,
-    setAddChildModalVisibility,
-    setSelectChildModalVisibility,
-    childSelected,
-    childChanged
+    doseTapped
   }, dispatch);
+
+  const boundActionCreators = Object.assign({}, boundBabyActionCreators, {
+    BoundAddChildActionCreators: bindActionCreators({
+      ...AddChildActionCreators
+    }, dispatch),
+    BoundManageChildActionCreators: bindActionCreators({
+      ...ManageChildActionCreators
+    }, dispatch)
+  });
+
+  return boundActionCreators;
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
