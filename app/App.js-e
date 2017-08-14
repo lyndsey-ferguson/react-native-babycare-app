@@ -6,6 +6,12 @@ import {
 } from 'react-native';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import {
+  AdMobBanner,
+  AdMobInterstitial,
+  PublisherBanner,
+  AdMobRewarded
+} from 'react-native-admob'
 
 import {
   changeChildImage,
@@ -70,6 +76,12 @@ class App extends Component {
         <DosesListView
           doseTapped={this.props.doseTapped}
           selectedDoses={currentBabyRecord.selectedDoses} />
+        <AdMobBanner
+          bannerSize="fullBanner"
+          adUnitID="ca-app-pub-3940256099942544/6300978111"
+          testDeviceID="EMULATOR"
+          didFailToReceiveAdWithError={this.bannerError} />
+
       </View>
     )
   }
