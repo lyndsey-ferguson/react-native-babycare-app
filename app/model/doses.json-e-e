@@ -1,46 +1,6 @@
 {
 	"en": {
-		"birth": [{
-			"id": "8EB6ECAB-00E4-4B87-B5FE-E35051A0BB7E",
-			"name": "hepatitis b",
-			"dose": "1st dose"
-		}],
-		"1 to 2 months": [{
-			"id": "D7E20B87-2EB6-4C4D-A4A2-7D7DB807FBC3",
-			"name": "hepatitis b",
-			"dose": "2nd dose"
-		}],
-		"2 months": [{
-				"id": "686BC8C8-E985-44D7-9060-B0E883D5EFC8",
-				"name": "Rotavirus (RV)",
-				"dose": "1st dose"
-			},
-			{
-				"id": "32BE4048-5649-4BE3-B2AD-A394852F31A4",
-				"name": "Diphtheria, tetanus, & acellular pertussis",
-				"dose": "1st dose"
-			},
-			{
-				"id": "C2840ED7-840B-475C-930E-1E73B26F8147",
-				"name": "Haemophilus influenzae type b",
-				"dose": "1st dose"
-			},
-			{
-				"id": "8CDB4362-BA2E-4A46-83EA-6C8C84277722",
-				"name": "Pneumococcal conjugate",
-				"dose": "1st dose"
-			},
-			{
-				"id": "03B830AD-A5D6-4BB2-9CD4-76C6BF981B93",
-				"name": "Inactivated poliovirus",
-				"dose": "1st dose"
-			}
-		],
-		"2 months to 18 years": [{
-			"id": "24183FB3-60FD-4A47-897D-3C6AA90290B0",
-			"name": "Meningococcal vaccines (for high risk children -- see your doctor)",
-			"dose": "See your doctor"
-		}]
+
 	},
 	"es": {
 		"recíen nacio": [{
@@ -75,6 +35,11 @@
 				"dose": "1st dose"
 			}
 		],
+		"3 meses": [{
+			"id": "1892DD08-7BE5-4555-8057-8FABD5D3B4CE",
+			"name": "meningococa",
+			"dose": "1st dose"
+		}],
 		"4 meses": [{
 				"id": "40539F78-1B9E-4728-A297-226EAFA8E16B",
 				"name": "neumococo conjugada",
@@ -96,6 +61,11 @@
 				"dose": "2nd dose"
 			}
 		],
+		"5 meses": [{
+			"id" : "D8777164-D4DD-4BE3-944F-5172D0A7B497",
+			"name": "meningococa",
+			"dose": "2nd dose"
+		}],
 		"6 meses": [{
 				"id": "896B592E-37A8-4AFF-A0C3-399C9D839C16",
 				"name": "quintuple pentavelente",
@@ -142,13 +112,13 @@
 				"id": "EECBFF38-8E6C-4B62-B522-52C8592C9DB8",
 				"name": "cuadruple o quintuple pentavelente",
 				"dose": "1st refuerzo"
+			},
+			{
+				"id" : "23523335-AA02-490B-A10A-BE37AF07E667",
+				"name": "meningococa",
+				"dose": "refuerzo"
 			}
 		],
-		"24 meses": [{
-			"id": "0893A2E4-B81C-4E3A-8B49-7002FD7974F2",
-			"name": "antigripal",
-			"dose": "annual dose"
-		}],
 		"5 - 6 años": [{
 				"id": "78A750C3-77F3-492A-AE4B-55981E2B9AD3",
 				"name": "opv",
