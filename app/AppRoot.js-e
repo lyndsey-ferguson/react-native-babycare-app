@@ -8,7 +8,9 @@ import thunk from 'redux-thunk';
 import {
   AppState,
   AsyncStorage,
-  Text
+  Text,
+  Image,
+  View
 } from 'react-native';
 
 import rootReducer from './reducers'
@@ -58,7 +60,18 @@ export default class AppRoot extends Component {
   }
   render() {
     if (this.state.isStoreLoading) {
-      return <Text>Loading Store ...</Text>
+      return (
+        <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#5d0402' }}>
+          <View style={{ paddingVertical: 10 }}>
+            <Text style={{ textAlign: 'center', fontSize: 24, color: '#FFFFFF' }}>Calendario de anticuerpos</Text>
+            <Text style={{ textAlign: 'center', fontSize: 18, color: '#FFFFFF' }}>Loading...</Text>
+          </View>
+          <Image
+            source={require('./res/launch.jpg')} >
+          </Image>
+        </View>
+      )
+      return
     }
     return (
       <Provider store={this.state.store}>
