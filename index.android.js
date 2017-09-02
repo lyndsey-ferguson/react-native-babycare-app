@@ -4,4 +4,4 @@ import {
 
 import AppRoot from './app/AppRoot'
 
-AppRegistry.registerComponent('Babycare', () => Babycare);
+AppRegistry.registerComponent('Babycare', () => AppRoot);
